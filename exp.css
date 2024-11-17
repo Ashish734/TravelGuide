@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: rgb(170, 156, 156);
+    color: white;
+}
+
+.header {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.7) 100%), url('/api/placeholder/1920/800') no-repeat center center;
+    background-size: cover;
+    min-height: 700px;
+    position: relative;
+    background-image: url(images/bg.jpg);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 50px;
+}
+
+.logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn {
+    padding: 8px 16px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.btn-signin {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    text-decoration: none;
+}
+.hero {
+    text-align: center;
+    
+}
+
+.hero h1 {
+    font-size: 3.125rem;
+    margin-bottom: 10px;
+    color: whitesmoke;
+}
+.hero h2{
+    margin-bottom: 10px;
+}
+.location {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.location input {
+    padding: 20px;
+    width: 450px;
+    font-size: 1rem;
+}
+
+.btn-large {
+    background-color: #e50914;
+    color: white;
+    padding: 18px 32px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.625rem;
+    cursor: pointer;
+}
+
+.features {
+    border-top: 8px solid #222;
+    padding: 50px 0;
+    background-color: rgb(12, 10, 44);
+}
+
+.feature {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.feature-text {
+    width: 50%;
+}
+
+.feature-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.feature-text a{
+    text-decoration: none;
+    color: white;
+}
+.feature-text a:hover{
+    text-decoration: underline;
+    color: rgb(252, 149, 4);
+}
+
+.feature-text p {
+    font-size: 1rem;
+}
+
+.feature-img {
+    width: 300px;
+    height: 400px;
+    background: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 30px;
+}
+.listcont{
+    display: flex;
+    justify-content: space-evenly;
+}
+.attractions-list, .bucket-list{
+    
+    width: 400px;
+    color: rgb(250, 250, 248);
+
+}
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #45a049;
+}
+.attractions-list, .bucket-list {
+    margin-top: 20px;
+}
+.attraction-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+.error {
+    color: red;
+    margin-top: 10px;
+}

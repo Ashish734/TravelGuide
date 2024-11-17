@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelGuide</title>
+    <link rel="shortcut icon" href="images/india.jpg" type="Image/x-icon">
+    <link rel="stylesheet" href="exp.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">TravelGuide</a>
+            <div >
+                <a href="sign_in.html" class="btn btn-signin">Sign In</a>
+            </div>
+        </nav>
+        <div class="hero">
+            <h1>A Visit to <font color="orange">IN</font><font color="blue">D</font><font color="green">IA</font>!!</h1>
+            <h2>Where To?</h2>
+            
+            <div class="location">
+                <input type="text" id="locationInput" placeholder="Enter location in India">
+                <button onclick="searchAttractions()" class="btn-large">Let's Go</button>
+            </div>
+            <div class="listcont">
+                <div class="attractions-list">
+                    <h2>Popular Attractions</h2>
+                    <div id="attractionsList"></div>
+                </div>
+    
+                <div class="bucket-list">
+                    <h2>My Bucket List</h2>
+                    <div id="bucketList"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script>
+        // Simulated attractions database
+        const attractionsDB = {
+            'himachal pradesh': [
+                'Spiti Valley',
+                'Solang Valley',
+                'Hidimba Devi Temple',
+                'Triund Hill',
+                'Rohtang pass'
+            ],
+            'goa': [
+                'Baga Beach',
+                'Dudhsagar Waterfalls',
+                'Basilica of Born Jesus',
+                'Aguada Fort',
+                'Calangate Beach'
+            ],
+            'kerala': [
+                'Varkala Beach',
+                'Munnar (Tea Gardens)',
+                'Alleppey Backwaters',
+                'Athirapilly Waterfalls',
+                'Sree Padmanabhaswamy Temple'
+            ],
+            'jharkhand':[
+                'Netrahat',
+                'Patratu Valley',
+                'Dassam Falls',
+                'Parasnath Hills'
+            ],
+            'bihar':[
+                'Mahabodhi Temple',
+                'Nalanda',
+                'Great Buddha Statue',
+                'Eco Park(Rajdhani Vatika)',
+                'Jim Corbett National Park'
+            ],
+            'delhi':[
+                'Qutub Minar',
+                'Lotus Temple',
+                'Red Fort',
+                'India Gate',
+                'ISCKON Temple',
+                'Rashtrapati Bhavan'
+            ],
+            'sikkim':[
+                'Nathula Pass',
+                'Tsomgo Lake',
+                'MG Marg',
+                'Yume Samdong(Zero Point)',
+                'Char Dham',
+                'Buddha Park'
+            ]
+        };
+
+        let bucketList = [];
+
+        function searchAttractions() {
+            const location = document.getElementById('locationInput').value.toLowerCase();
+            const attractionsListDiv = document.getElementById('attractionsList');
+            attractionsListDiv.innerHTML = '';
+
+            if (attractionsDB[location]) {
+                attractionsDB[location].forEach(attraction => {
+                    const attractionDiv = document.createElement('div');
+                    attractionDiv.className = 'attraction-item';
+                    attractionDiv.innerHTML = `
+                        <span>${attraction}</span>
+                        <button onclick="addToBucketList('${attraction}')">Add to Bucket List</button>
+                    `;
+                    attractionsListDiv.appendChild(attractionDiv);
+                });
+            } else {
+                attractionsListDiv.innerHTML = '<p class="error">Location not found. Try Goa, Himachal Pradesh, or Bihar.</p>';
+            }
+        }
+
+        function addToBucketList(attraction) {
+            if (!bucketList.includes(attraction)) {
+                bucketList.push(attraction);
+                updateBucketList();
+            }
+        }
+
+        function removeFromBucketList(attraction) {
+            bucketList = bucketList.filter(item => item !== attraction);
+            updateBucketList();
+        }
+
+        function updateBucketList() {
+            const bucketListDiv = document.getElementById('bucketList');
+            bucketListDiv.innerHTML = '';
+            
+            bucketList.forEach(attraction => {
+                const attractionDiv = document.createElement('div');
+                attractionDiv.className = 'attraction-item';
+                attractionDiv.innerHTML = `
+                    <span>${attraction}</span>
+                    <button onclick="removeFromBucketList('${attraction}')" style="background-color: #ff4444;">Remove</button>
+                `;
+                bucketListDiv.appendChild(attractionDiv);
+            });
+        }
+    </script>
+    
+    <marquee behavior="" scrollamount="50"  direction="right" style="font-size: 40px; font-family: cursive; color: red;" >Trending!!</marquee>
+
+    <section class="features">
+        <div class="feature">
+            <div class="feature-text">
+                <h2><a href="https://maps.app.goo.gl/NPq8VT5gS2Hj2prV6">Ladakh (Leh)</a></h2>
+                <p>The land of high mountain passes, barren mountains, alpine lakes & meadows, enchanting valleys and ancient colourful Buddhist monasteries, Ladakh is one of the must-visit destinations in India. It is ideal for adventure enthusiasts and nature lovers alike</p>
+            </div>
+            <div class="feature-img"><img src="images/ladakh.png" alt="" height="400px" width="600px"></div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <div class="feature-img"><img src="images/lonavala.jpg" height="400px" alt=""></div>
+            <div class="feature-text">
+                <h2><a href="https://maps.app.goo.gl/bdqsRNf363CYU2ub6">Lonavala (Maharashtra)</a></h2>
+                <p>Lonavala, a popular hill station near India’s financial capital—Mumbai, is the perfect getaway for nature lovers and trekking enthusiasts. Its caves, forts, lakes and breathtaking waterfalls are a delight for those looking for a breather from the hustle and bustle. For travelers looking for an exotic stay, the famous Aamby Valley has multiple options. </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <div class="feature-text">
+                <h2><a href="https://maps.app.goo.gl/tSFUK2FCxFx7QrNW9">Ooty (Tamil Nadu)</a></h2>
+                <p>Ooty’s tea plantations of multiple varieties and mesmerizing landscape has won it the title of the “Queen of Hills Stations”. Its ancient look of the former British Raj summer resort can take you back in time to 19th century architecture. The town is easily among the most popular places to spend a vacation. </p>
+            </div>
+            <div class="feature-img"><img src="images/ooty.jpg" height="400px" alt=""></div>
+        </div>
+    </section>
+</body>
+</html>
